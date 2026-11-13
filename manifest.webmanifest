@@ -1,0 +1,19 @@
+{
+ "name": "Sofra ve Spor",
+ "short_name": "Sofra Spor",
+ "lang": "tr",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#F3F6F3",
+ "theme_color": "#0E8A5F",
+ "icons": [
+  {
+   "src": "apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png",
+   "purpose": "any"
+  }
+ ]
+}
