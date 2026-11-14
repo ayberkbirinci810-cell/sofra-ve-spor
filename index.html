@@ -1552,7 +1552,7 @@ const foodRow = f => `<div class="li"><button class="sp" data-a="foodSel" data-k
 function addResults() {
   const a = U.add, q = norm(a.q).replace(/\bsusi/g, 'sushi'), foods = allFoods();
   if (q) {
-    const list = foods.filter(f => norm(f.n).includes(q)).slice(0, 40);
+    const list = rankFoods(foods, q).slice(0, 40);
     return (list.length ? list.map(foodRow).join('') : `<p class="mut sm">Listede bulunamadı.</p>`) + `<button class="btn o w" data-a="customOpen" style="margin-top:10px">"${esc(a.q)}" için kendi yiyeceğini ekle</button>`;
   }
   let h = '';
@@ -1746,12 +1746,27 @@ function scanSheet() {
   const manual = `<label class="f" for="scn" style="margin-top:14px">ya da barkodun altındaki numarayı yaz<input type="text" id="scn" inputmode="numeric" maxlength="14" autocomplete="off" value="${esc(s.code || '')}"></label><button class="btn o w" data-a="scanManual" style="margin-top:8px">Numarayla ara</button>`;
   if (s.st === 'cam') return head + `<div class="scanbox"><video id="scv" playsinline muted autoplay></video><i></i></div><p class="xs mut" style="margin-top:8px">Barkodu kırmızı çizginin üzerine getir, yakın ve net tut. Okununca ürün kendiliğinden açılır.</p>` + manual;
   if (s.st === 'load') return head + `<div class="info" style="margin-top:10px">Ürün aranıyor… (${esc(s.code)})</div>`;
-  if (s.st === 'nf') return head + `<div class="info" style="margin-top:10px">Bu barkod (${esc(s.code)}) ürün veritabanında yok ya da besin değerleri girilmemiş. Değerleri paketten bir kez girersen sonraki okutmada kendiliğinden tanınır.</div>
-<button class="btn w" data-a="scanCustom" style="margin-top:10px">Değerleri paketten gir</button><button class="btn o w" data-a="scanOpen" style="margin-top:8px">Başka barkod okut</button>`;
+  if (s.st === 'nf') return head + `<div class="info" style="margin-top:10px">Bu barkod (${esc(s.code)}) ürün veritabanında yok ya da besin değerleri girilmemiş. Listemizdeki bir yiyecekle eşleştir ya da değerleri paketten gir; bu barkod sonraki okutmada kendiliğinden tanınır.</div>
+<label class="f" for="scq" style="margin-top:12px">Listede ara ve eşleştir<input type="search" id="scq" data-i="scanq" placeholder="ör. kola" autocomplete="off" value="${esc(s.q || '')}"></label><div id="scanRes">${scanMatches()}</div>
+<button class="btn o w" data-a="scanCustom" style="margin-top:10px">Değerleri paketten gir</button><button class="btn o w" data-a="scanOpen" style="margin-top:8px">Başka barkod okut</button>`;
   if (s.st === 'err') return head + `<div class="info" style="margin-top:10px">Ürün bilgisi alınamadı. Barkod araması internet ister; bağlantını kontrol edip yeniden dene.</div>
 <button class="btn w" data-a="scanRetry" style="margin-top:10px">Yeniden dene</button><button class="btn o w" data-a="scanCustom" style="margin-top:8px">Değerleri paketten gir</button>`;
   return head + `<div class="info" style="margin-top:10px">Kamera açılamadı. Kamera izni kapalı olabilir (iPhone: Ayarlar › Safari › Kamera). İzin verip yeniden deneyebilir ya da numarayı elle yazabilirsin.</div><button class="btn g w" data-a="scanOpen" style="margin-top:10px">Kamerayı yeniden dene</button>` + manual;
 }
+/* Arama sıralaması: adı sorguyla başlayan, sonra bir kelimesi sorguyla başlayan, sonra içinde geçen */
+const rankFoods = (list, q) => list.map(f => { const n = norm(f.n), i = n.indexOf(q); return [i < 0 ? 9 : i === 0 ? 0 : n[i - 1] === ' ' ? 1 : 2, f]; }).filter(x => x[0] < 9).sort((a, b) => a[0] - b[0]).map(x => x[1]);
+function scanMatches() {
+  const q = norm(U.add.scan.q || ''); if (!q) return '';
+  const list = rankFoods(FOODS, q).slice(0, 8);
+  return list.length ? list.map(f => `<div class="li"><button class="sp" data-a="scanLink" data-k="${f.key}" style="text-align:left;min-height:44px"><div class="t">${esc(f.n)}</div><div class="xs mut">${esc(f.pl)} · ${fmt(f.kcal)} kcal</div></button></div>`).join('') : '<p class="mut sm">Listede bulunamadı.</p>';
+}
+I.scanq = el => { U.add.scan.q = el.value; $('#scanRes').innerHTML = scanMatches(); };
+A.scanLink = d => {
+  const f = foodByKey(d.k), s = U.add.scan; if (!f || !s) return;
+  const c = { id: uid(), n: f.n, kcal: f.kcal, p: f.p, c: f.c, f: f.f, g: f.g, pl: f.pl, bc: s.code, src: 'me' };
+  S.custom.push(c); save();
+  U.add.scan = null; U.add.sel = 'c' + c.id; U.add.mult = 1; U.add.g = 0; resheet(); toast('Barkod eşleştirildi');
+};
 A.scanOpen = () => { U.add.scan = { st: 'cam' }; resheet(); startScan(); };
 A.scanBack = () => { stopScan(); U.add.scan = null; U.add.bc = null; resheet(); };
 A.scanRetry = () => scanLookup(U.add.scan.code);
