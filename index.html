@@ -108,6 +108,9 @@ p{margin:0}
 .tag.ok{background:var(--good-soft);color:var(--good)}
 .tag.m{background:var(--field);color:var(--muted)}
 .note{background:var(--note-bg);color:var(--note);border-radius:16px;padding:12px 14px;font-size:14.5px}
+.scanbox{position:relative;border-radius:16px;overflow:hidden;background:#000;height:min(66vw,320px);margin-top:10px}
+.scanbox video{width:100%;height:100%;object-fit:cover;display:block}
+.scanbox i{position:absolute;left:7%;right:7%;top:50%;height:2px;margin-top:-1px;background:#FF5A4F;box-shadow:0 0 10px #FF5A4F}
 .info{background:var(--soft);color:var(--ink);border-radius:16px;padding:12px 14px;font-size:14.5px}
 
 label.f{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:650;color:var(--muted)}
@@ -598,7 +601,209 @@ const FOOD_ROWS = [
 'Greyfurt|Meyve|yarım adet|150|65|1|13|0.2',
 'Erik|Meyve|5 adet|100|45|0.7|11|0.3',
 'Dut|Meyve|1 kase|100|45|1.4|10|0.4',
-'Avokado|Meyve|yarım adet|100|160|2|8.5|14.7'
+'Avokado|Meyve|yarım adet|100|160|2|8.5|14.7',
+/* ---- 14 Kasım 2026 eklemeleri (hep sona eklenir; f<sıra> anahtarları bozulmasın) ---- */
+// --- Dünya mutfağı
+'Sushi (somonlu nigiri)|Dünya mutfağı|2 adet|70|100|5.5|15|1.8',
+'Sushi (ton balıklı nigiri)|Dünya mutfağı|2 adet|70|95|6.5|15|0.8',
+'Sushi (karidesli nigiri)|Dünya mutfağı|2 adet|65|85|5|15|0.4',
+'Sushi maki (salatalıklı)|Dünya mutfağı|6 adet|100|135|3|28|0.8',
+'Sushi maki (somonlu)|Dünya mutfağı|6 adet|110|175|7.5|28|3.6',
+'Sushi maki (ton balıklı)|Dünya mutfağı|6 adet|110|162|8.5|28|1.6',
+'Sushi California roll|Dünya mutfağı|8 adet|200|330|9|52|9',
+'Sushi Philadelphia roll|Dünya mutfağı|8 adet|210|385|12|50|15',
+'Sushi tempura karidesli roll|Dünya mutfağı|8 adet|220|465|13|62|18',
+'Sushi tabağı (karışık)|Dünya mutfağı|12 adet|300|475|20|78|9',
+'Sashimi (somon)|Dünya mutfağı|5 dilim|75|152|15|0|10',
+'Soya sosu|Dünya mutfağı|1 yemek kaşığı|15|9|1.3|0.8|0',
+'Edamame|Dünya mutfağı|1 kase|100|125|11.5|9|5',
+'Miso çorbası|Dünya mutfağı|1 kase|240|60|4.5|6|2',
+'Ramen|Dünya mutfağı|1 kase|500|520|24|65|18',
+'Tavuklu noodle|Dünya mutfağı|1 porsiyon|300|445|22|55|15',
+'Sebzeli noodle|Dünya mutfağı|1 porsiyon|300|380|10|60|11',
+'Hazır noodle (paket)|Dünya mutfağı|1 paket|75|340|7|46|14',
+'Tavuklu kızarmış pirinç|Dünya mutfağı|1 porsiyon|250|420|18|55|14',
+'Tatlı ekşi tavuk|Dünya mutfağı|1 porsiyon|250|430|22|45|18',
+'Çin böreği (spring roll)|Dünya mutfağı|2 adet|100|220|5|26|10.5',
+'Gyoza (Japon mantısı)|Dünya mutfağı|5 adet|100|210|8|24|9',
+'Pad thai|Dünya mutfağı|1 porsiyon|300|520|22|65|19',
+'Köri soslu tavuk|Dünya mutfağı|1 porsiyon|250|378|26|12|25',
+'Poke bowl (somonlu)|Dünya mutfağı|1 kase|350|555|28|65|20',
+'Taco (etli)|Dünya mutfağı|2 adet|160|375|18|30|20',
+'Burrito (etli)|Dünya mutfağı|1 adet|300|610|28|70|24',
+'Tavuklu quesadilla|Dünya mutfağı|1 adet|200|505|27|40|26',
+'Tavuk fajita|Dünya mutfağı|1 porsiyon|300|470|30|42|20',
+'Nachos (peynirli)|Dünya mutfağı|1 porsiyon|150|475|12|48|26',
+'Guacamole|Dünya mutfağı|2 yemek kaşığı|50|82|1|4|7',
+'Falafel|Dünya mutfağı|4 adet|100|333|13|32|17',
+'Falafel dürüm|Dünya mutfağı|1 adet|250|515|17|62|22',
+'Tavuk şnitzel|Dünya mutfağı|1 porsiyon|150|368|27|20|20',
+'Lazanya|Dünya mutfağı|1 porsiyon|300|478|25|38|25',
+'Spagetti bolonez|Dünya mutfağı|1 porsiyon|350|515|25|65|17',
+'Fettuccine Alfredo (tavuklu)|Dünya mutfağı|1 porsiyon|350|718|32|62|38',
+'Penne arabiata|Dünya mutfağı|1 porsiyon|300|420|12|68|11',
+'Pesto soslu makarna|Dünya mutfağı|1 porsiyon|300|542|15|62|26',
+'Mantarlı risotto|Dünya mutfağı|1 porsiyon|300|425|10|58|17',
+'Margarita pizza|Dünya mutfağı|2 dilim|200|490|20|62|18',
+'Tavuk wrap|Dünya mutfağı|1 adet|250|472|28|45|20',
+// --- Salata ve meze (ek)
+'Patates salatası (zeytinyağlı)|Salata ve meze|1 porsiyon|200|242|4|34|10',
+'Patates salatası (mayonezli)|Salata ve meze|1 porsiyon|200|344|4.5|32|22',
+'Sezar salata (tavuklu)|Salata ve meze|1 porsiyon|300|420|30|14|27',
+'Makarna salatası|Salata ve meze|1 porsiyon|200|333|7|38|17',
+'Kinoa salatası|Salata ve meze|1 porsiyon|250|322|10|40|13.5',
+'Yunan salatası (beyaz peynirli)|Salata ve meze|1 porsiyon|250|230|7|10|18',
+'Coleslaw (lahana salatası)|Salata ve meze|1 porsiyon|150|193|1.5|13|15',
+'Nohut salatası|Salata ve meze|1 porsiyon|200|280|11|32|12',
+'Kuru börülce salatası|Salata ve meze|1 porsiyon|200|233|10|28|9',
+'Pancar salatası|Salata ve meze|1 porsiyon|150|113|2|15|5',
+'Havuç salatası (limonlu)|Salata ve meze|1 porsiyon|150|97|1.2|13|4.5',
+'Yeşil salata (sossuz)|Salata ve meze|1 porsiyon|150|30|2|5|0.3',
+'Girit ezmesi|Salata ve meze|2 yemek kaşığı|40|118|4.5|1.5|10.5',
+'Zeytinyağı|Salata ve meze|1 yemek kaşığı|10|90|0|0|10',
+'Mayonez|Salata ve meze|1 yemek kaşığı|15|100|0.2|0.3|11',
+'Ketçap|Salata ve meze|1 yemek kaşığı|15|17|0.2|4|0',
+'Nar ekşisi|Salata ve meze|1 tatlı kaşığı|7|18|0|4.5|0',
+// --- Sebze
+'Domates|Sebze|1 orta boy|120|22|1.1|4.7|0.2',
+'Salatalık|Sebze|1 adet|120|18|0.8|4.3|0.1',
+'Havuç|Sebze|1 orta boy|70|29|0.6|6.7|0.2',
+'Marul|Sebze|1 kase|50|8|0.6|1.5|0.1',
+'Haşlanmış brokoli|Sebze|1 kase|150|53|3.6|9|0.6',
+'Haşlanmış karnabahar|Sebze|1 kase|150|38|2.8|6|0.7',
+'Haşlanmış ıspanak|Sebze|1 kase|150|38|4.5|4.5|0.4',
+'Haşlanmış kabak|Sebze|1 kase|150|27|1.7|5|0.3',
+'Haşlanmış bezelye|Sebze|1 kase|100|80|5.4|14|0.2',
+'Konserve mısır|Sebze|3 yemek kaşığı|60|52|1.6|10|0.6',
+'Közlenmiş biber|Sebze|2 adet|100|35|1|7|0.3',
+'Közlenmiş patlıcan|Sebze|1 porsiyon|150|42|1.3|9|0.3',
+'Izgara sebze (zeytinyağlı)|Sebze|1 porsiyon|200|144|3|14|8.5',
+'Sote mantar|Sebze|1 porsiyon|150|100|4.5|6|6.5',
+'Fırın patates|Sebze|1 orta boy|180|167|4.4|37|0.2',
+'Fırın tatlı patates|Sebze|1 orta boy|150|138|3|31|0.2',
+// --- Ana yemek (ek)
+'Fırın somon|Ana yemek|1 porsiyon|150|295|31|0|19',
+'Tavuk döner (porsiyon)|Ana yemek|1 porsiyon|150|280|30|4|16',
+'Fırın tavuk baget|Ana yemek|2 adet|120|212|27|0|11.5',
+'Izgara tavuk but (derisiz)|Ana yemek|1 porsiyon|150|266|36|0|13.5',
+'Fırın sebzeli tavuk|Ana yemek|1 porsiyon|300|327|32|16|15',
+'Biftek (ızgara)|Ana yemek|1 porsiyon|150|327|39|0|19',
+'Dana haşlama|Ana yemek|1 porsiyon|250|329|30|14|17',
+'Karides ızgara|Ana yemek|1 porsiyon|120|123|24|1|2.5',
+'Haşlanmış nohut|Ana yemek|1 kase|150|248|13|40|4',
+'Haşlanmış yeşil mercimek|Ana yemek|1 kase|150|179|13.5|30|0.6',
+'Tofu|Ana yemek|1 porsiyon|100|125|13|2.5|7',
+// --- Pilav ve makarna (ek)
+'Esmer pirinç pilavı|Pilav ve makarna|1 porsiyon|150|190|4|38|2.5',
+'Haşlanmış kinoa|Pilav ve makarna|1 porsiyon|150|180|6.6|32|2.9',
+'Tam buğday makarna (sade)|Pilav ve makarna|1 porsiyon|200|255|10.5|50|1.5',
+'Haşlanmış karabuğday|Pilav ve makarna|1 porsiyon|150|145|5|30|0.9',
+'Meyhane pilavı|Pilav ve makarna|1 porsiyon|200|291|6|50|7.5',
+'Kremalı tavuklu makarna|Pilav ve makarna|1 porsiyon|300|551|28|58|23',
+// --- Çorba (ek)
+'Kremalı tavuk çorbası|Çorba|1 kase|250|191|9|14|11',
+'Balkabağı çorbası|Çorba|1 kase|250|129|3|18|5',
+'Bezelye çorbası|Çorba|1 kase|250|149|7|20|4.5',
+'Havuç çorbası|Çorba|1 kase|250|119|2.5|16|5',
+// --- Kahvaltılık (ek)
+'Kruvasan (sade)|Kahvaltılık|1 adet|60|245|5|27|13',
+'Çikolatalı kruvasan|Kahvaltılık|1 adet|70|298|5.5|33|16',
+'Pankek|Kahvaltılık|2 adet|100|227|6.5|30|9',
+'Krep (sade)|Kahvaltılık|1 adet|60|111|4|14|4.3',
+'Granola|Kahvaltılık|5 yemek kaşığı|50|235|5.5|32|9.5',
+'Yulaf ezmesi (kuru)|Kahvaltılık|4 yemek kaşığı|40|153|5.4|26.5|2.8',
+'Chia tohumu|Kahvaltılık|1 yemek kaşığı|12|58|2|4.2|3.7',
+'Avokadolu tost|Kahvaltılık|1 dilim|120|263|7|24|15.5',
+'Fıstık ezmeli ekmek|Kahvaltılık|1 dilim|50|190|7|17|10.5',
+'Yumurta akı (haşlanmış)|Kahvaltılık|1 adet|33|17|3.6|0.2|0.1',
+'Fındık kreması|Kahvaltılık|1 yemek kaşığı|20|108|1.3|11.5|6.3',
+'Krem peynir|Kahvaltılık|1 yemek kaşığı|20|50|1.2|0.8|4.7',
+'Hellim (ızgara)|Kahvaltılık|2 dilim|60|193|13|1.5|15',
+'Mozzarella|Kahvaltılık|yarım top|60|151|11|1|11.5',
+'Cheddar peyniri|Kahvaltılık|1 dilim|20|80|5|0.3|6.6',
+'Hindi füme|Kahvaltılık|3 dilim|45|45|8.5|0.9|0.8',
+'Somon füme|Kahvaltılık|3 dilim|60|103|11|0|6.5',
+'Salam|Kahvaltılık|3 dilim|45|109|6|1|9',
+'Sosis|Kahvaltılık|2 adet|80|199|9.5|2|17',
+'Ekşi mayalı ekmek|Kahvaltılık|1 dilim|40|98|3.5|19.5|0.6',
+'Ramazan pidesi|Kahvaltılık|1 dilim|60|157|5|32|1',
+'Hamburger ekmeği|Kahvaltılık|1 adet|55|149|5|27|2.3',
+'Galeta|Kahvaltılık|3 adet|30|120|3.5|22|2',
+'Etimek|Kahvaltılık|4 adet|28|105|3.4|20.5|1',
+// --- Süt ürünü (ek)
+'Meyveli yoğurt|Süt ürünü|1 kase|150|150|5|24|3.8',
+'Yüksek proteinli yoğurt|Süt ürünü|1 kase|150|105|15|6|2.3',
+'Badem sütü (şekersiz)|Süt ürünü|1 bardak|200|28|1|0.6|2.4',
+'Yulaf sütü|Süt ürünü|1 bardak|200|87|2|13|3',
+// --- Meyve (ek)
+'Ananas|Meyve|2 dilim|150|77|0.8|18|0.2',
+'Mango|Meyve|yarım adet|150|94|1.2|21|0.6',
+'Yaban mersini|Meyve|1 kase|100|57|0.7|13|0.3',
+'Ahududu|Meyve|1 kase|100|53|1.2|10.5|0.7',
+'Böğürtlen|Meyve|1 kase|100|46|1.4|9|0.5',
+'Vişne|Meyve|1 kase|100|53|1|12|0.3',
+'Limon|Meyve|1 adet|60|20|0.7|4|0.2',
+'Meyve salatası|Meyve|1 kase|200|115|1.4|27|0.4',
+// --- Dışarıda (ek)
+'Tavuk burger|Dışarıda|1 adet|200|480|24|42|24',
+'Cheeseburger|Dışarıda|1 adet|150|349|18|31|17',
+'Tavuk nugget|Dışarıda|6 adet|100|290|15|17|18',
+'Çıtır kızarmış tavuk|Dışarıda|2 parça|200|495|36|18|31',
+'Soğan halkası|Dışarıda|8 adet|100|341|4.5|38|19',
+'Patates kızartması (büyük boy)|Dışarıda|1 büyük paket|150|469|5.5|60|23',
+'Sosisli sandviç|Dışarıda|1 adet|130|327|11|28|19',
+'Tavuklu sandviç|Dışarıda|1 adet|200|395|25|40|15',
+'Ton balıklı sandviç|Dışarıda|1 adet|200|419|22|40|19',
+'Tavuk şiş dürüm|Dışarıda|1 adet|250|444|30|45|16',
+'Köfte dürüm|Dışarıda|1 adet|250|522|26|46|26',
+// --- Atıştırmalık
+'Patates cipsi|Atıştırmalık|1 küçük paket|40|215|2.5|21|13.5',
+'Mısır cipsi|Atıştırmalık|1 küçük paket|40|197|2.8|24|10',
+'Patlamış mısır|Atıştırmalık|1 kase|30|143|3|17|7',
+'Kraker|Atıştırmalık|5 adet|30|141|3|20|5.5',
+'Çubuk kraker|Atıştırmalık|1 küçük paket|40|160|4.5|30|2.5',
+'Pirinç patlağı|Atıştırmalık|2 adet|18|69|1.5|14.5|0.6',
+'Gofret|Atıştırmalık|1 adet|35|183|2.3|21|10',
+'Çikolatalı bar|Atıştırmalık|1 adet|50|244|3|31|12',
+'Kremalı bisküvi|Atıştırmalık|3 adet|30|145|1.8|21|6',
+'Yulaflı bisküvi|Atıştırmalık|2 adet|30|135|2.2|19|5.5',
+'Jelibon|Atıştırmalık|10 adet|40|134|2.5|31|0',
+'Protein bar|Atıştırmalık|1 adet|60|227|20|21|7',
+'Protein tozu (whey)|Atıştırmalık|1 ölçek|30|121|24|3|1.5',
+// --- İçecek (ek)
+'Americano|İçecek|1 fincan|240|5|0.3|0.7|0',
+'Espresso|İçecek|1 shot|30|3|0.1|0.5|0',
+'Cappuccino|İçecek|1 fincan|240|110|6|9|5.5',
+'Buzlu latte|İçecek|1 bardak|350|130|7|11|6.5',
+'Mocha|İçecek|1 bardak|350|291|10|38|11',
+'Frappe (şuruplu soğuk kahve)|İçecek|1 bardak|350|301|5|50|9',
+'Hazır kahve (üçü bir arada)|İçecek|1 fincan|18|79|0.5|13.5|2.6',
+'Türk kahvesi (şekerli)|İçecek|1 fincan|60|40|0.2|9.5|0.1',
+'Yeşil çay (şekersiz)|İçecek|1 fincan|200|2|0|0.4|0',
+'Enerji içeceği|İçecek|1 kutu|250|112|0|28|0',
+'Enerji içeceği (şekersiz)|İçecek|1 kutu|250|8|0|1.5|0',
+'Sporcu içeceği (izotonik)|İçecek|1 şişe|500|128|0|32|0',
+'Meyveli smoothie|İçecek|1 bardak|300|182|4|38|1.5',
+'Milkshake|İçecek|1 bardak|300|352|9|52|12',
+'Proteinli süt (hazır)|İçecek|1 şişe|330|200|25|15|4.5',
+// --- Tatlı (ek)
+'Cheesecake|Tatlı|1 dilim|125|399|7|32|27',
+'San Sebastian cheesecake|Tatlı|1 dilim|130|432|8|28|32',
+'Tiramisu|Tatlı|1 dilim|120|350|6|32|22',
+'Brownie|Tatlı|1 adet|60|259|3.5|32|13',
+'Çikolatalı kurabiye (cookie)|Tatlı|1 adet|40|196|2.2|26|9.3',
+'Un kurabiyesi|Tatlı|2 adet|40|200|2.2|22|11.5',
+'Donut|Tatlı|1 adet|60|255|3.5|30|13.5',
+'Çikolatalı muffin|Tatlı|1 adet|100|403|6|52|19',
+'Magnolia|Tatlı|1 kase|150|328|6|40|16',
+'Çikolatalı yaş pasta|Tatlı|1 dilim|120|402|5.5|50|20',
+'Ekler|Tatlı|1 adet|60|159|3.5|16|9',
+'Makaron|Tatlı|2 adet|30|130|2.3|19|5',
+'Puding|Tatlı|1 kase|150|180|5|30|4.5',
+'Külah dondurma (2 top)|Tatlı|1 külah|120|242|4|34|10',
+'Elmalı turta|Tatlı|1 dilim|125|301|3|43|13',
+'Mozaik pasta|Tatlı|1 dilim|80|331|4.5|40|17',
+'Islak kek|Tatlı|1 dilim|100|351|5|48|15.5'
 ];
 const FOODS = FOOD_ROWS.map((r, i) => { const a = r.split('|'); return { key: 'f' + i, n: a[0], cat: a[1], pl: a[2], g: +a[3], kcal: +a[4], p: +a[5], c: +a[6], f: +a[7] }; });
 const FOOD_CATS = [...new Set(FOODS.map(f => f.cat))];
@@ -1074,7 +1279,7 @@ function tot(k) {
   }
   return t;
 }
-const allFoods = () => FOODS.concat(S.custom.map(c => ({ key: 'c' + c.id, n: c.n, cat: 'Kendi yiyeceklerim', pl: '1 porsiyon', g: 0, kcal: c.kcal, p: c.p || 0, c: c.c || 0, f: c.f || 0 })));
+const allFoods = () => FOODS.concat(S.custom.map(c => ({ key: 'c' + c.id, n: c.n, cat: 'Kendi yiyeceklerim', pl: c.pl || (c.g ? c.g + ' g' : '1 porsiyon'), g: c.g || 0, kcal: c.kcal, p: c.p || 0, c: c.c || 0, f: c.f || 0 })));
 const foodByKey = key => allFoods().find(f => f.key === key);
 function touchFood(key) {
   S.freq[key] = (S.freq[key] || 0) + 1;
@@ -1187,7 +1392,7 @@ function sheet(html, fn) {
   $('#sheet').classList.add('open'); $('#scrim').classList.add('open');
 }
 function resheet() { if (U.sheetFn) { const b = $('#sheetBody'), st = b.scrollTop; b.innerHTML = U.sheetFn(); b.scrollTop = st; } }
-function closeSheet() { $('#sheet').classList.remove('open'); $('#scrim').classList.remove('open'); U.sheetFn = null; U.add = null; }
+function closeSheet() { stopScan(); $('#sheet').classList.remove('open'); $('#scrim').classList.remove('open'); U.sheetFn = null; U.add = null; }
 function ask(title, text, okLabel, cb) {
   U.askCb = cb;
   sheet(`<h2>${esc(title)}</h2><p class="mut">${esc(text)}</p><div class="grid2"><button class="btn o" data-a="closeSheet">Vazgeç</button><button class="btn" data-a="askOk">${esc(okLabel)}</button></div>`);
@@ -1345,7 +1550,7 @@ ${w >= 8 ? '<p class="sm" style="color:var(--good);font-weight:650">Su hedefi ta
 /* ---------- Yiyecek ekleme paneli ---------- */
 const foodRow = f => `<div class="li"><button class="sp" data-a="foodSel" data-k="${f.key}" style="text-align:left;min-height:44px"><div class="t">${esc(f.n)}</div><div class="xs mut">${esc(f.pl)} · ${fmt(f.kcal)} kcal · P ${f1(f.p)} g</div></button><button class="ic b" data-a="foodQuick" data-k="${f.key}" aria-label="${esc(f.n)}: 1 porsiyon ekle">+</button></div>`;
 function addResults() {
-  const a = U.add, q = norm(a.q), foods = allFoods();
+  const a = U.add, q = norm(a.q).replace(/\bsusi/g, 'sushi'), foods = allFoods();
   if (q) {
     const list = foods.filter(f => norm(f.n).includes(q)).slice(0, 40);
     return (list.length ? list.map(foodRow).join('') : `<p class="mut sm">Listede bulunamadı.</p>`) + `<button class="btn o w" data-a="customOpen" style="margin-top:10px">"${esc(a.q)}" için kendi yiyeceğini ekle</button>`;
@@ -1370,23 +1575,32 @@ function portionInfo() {
 }
 function addSheet() {
   const a = U.add;
-  if (a.custom) return `<div class="row"><button class="ic" data-a="foodBack" aria-label="Geri">‹</button><h2 class="sp">Kendi yiyeceğim</h2></div>
-<label class="f" for="cf-n">Ad<input type="text" id="cf-n" value="${esc(a.q)}" maxlength="60"></label>
-<div class="grid2"><label class="f" for="cf-k">Kalori (kcal)<input type="number" id="cf-k" inputmode="decimal" min="0"></label><label class="f" for="cf-p">Protein (g, isteğe bağlı)<input type="number" id="cf-p" inputmode="decimal" min="0"></label>
-<label class="f" for="cf-c">Karbonhidrat (g)<input type="number" id="cf-c" inputmode="decimal" min="0"></label><label class="f" for="cf-f">Yağ (g)<input type="number" id="cf-f" inputmode="decimal" min="0"></label></div>
-<p class="xs mut">Bu yiyecek "Kendi yiyeceklerim" listesine kaydedilir, sonra aramada çıkar.</p>
-<button class="btn w" data-a="customSave">Kaydet ve ${MEAL_N[a.m].toLocaleLowerCase('tr-TR')} öğününe ekle</button>`;
+  if (a.scan) return scanSheet();
+  if (a.custom) {
+    const e = a.edit ? customOf(a.edit) : null, val = x => x != null ? ' value="' + x + '"' : '';
+    return `<div class="row"><button class="ic" data-a="foodBack" aria-label="Geri">‹</button><h2 class="sp">${e ? 'Yiyeceği düzenle' : 'Kendi yiyeceğim'}</h2></div>
+<label class="f" for="cf-n">Ad<input type="text" id="cf-n" value="${esc(e ? e.n : a.q)}" maxlength="60"></label>
+<label class="f" for="cf-g">1 porsiyon kaç gram? (isteğe bağlı)<input type="number" id="cf-g" inputmode="decimal" min="0"${e && e.g ? val(e.g) : ''} placeholder="ör. 100"></label>
+<p class="xs mut">Aşağıdaki değerler 1 porsiyon içindir. Paketteki tablo 100 g için yazılmışsa porsiyona 100 yaz, değerleri aynen gir; eklerken kaç gram yediğini seçebilirsin.</p>
+<div class="grid2"><label class="f" for="cf-k">Kalori (kcal)<input type="number" id="cf-k" inputmode="decimal" min="0"${e ? val(e.kcal) : ''}></label><label class="f" for="cf-p">Protein (g, isteğe bağlı)<input type="number" id="cf-p" inputmode="decimal" min="0"${e ? val(e.p || 0) : ''}></label>
+<label class="f" for="cf-c">Karbonhidrat (g)<input type="number" id="cf-c" inputmode="decimal" min="0"${e ? val(e.c || 0) : ''}></label><label class="f" for="cf-f">Yağ (g)<input type="number" id="cf-f" inputmode="decimal" min="0"${e ? val(e.f || 0) : ''}></label></div>
+<p class="xs mut">${a.bc && !e ? 'Barkod ' + esc(a.bc) + ' bu yiyeceğe bağlanır; bir dahaki okutmada kendiliğinden tanınır.' : 'Bu yiyecek "Kendi yiyeceklerim" listesinde durur, aramada çıkar.'}</p>
+<button class="btn w" data-a="customSave">${e ? 'Değişiklikleri kaydet' : 'Kaydet ve ' + MEAL_N[a.m].toLocaleLowerCase('tr-TR') + ' öğününe ekle'}</button>`;
+  }
   if (a.sel) {
-    const f = foodByKey(a.sel);
+    const f = foodByKey(a.sel), cu = customOf(a.sel);
     return `<div class="row"><button class="ic" data-a="foodBack" aria-label="Geri">‹</button><h2 class="sp">${esc(f.n)}</h2></div>
-<p class="mut sm">1 porsiyon: ${esc(f.pl)}${f.g ? ' (' + f.g + ' g)' : ''}</p>
+<p class="mut sm">1 porsiyon: ${esc(f.pl)}${f.g && !/ g$/.test(f.pl) ? ' (' + f.g + ' g)' : ''}</p>
 <div class="chips">${[[0.5, '½'], [1, '1'], [1.5, '1½'], [2, '2']].map(o => `<button class="chip${!a.g && a.mult === o[0] ? ' on' : ''}" data-a="foodMult" data-v="${o[0]}" style="min-width:60px;justify-content:center">${o[1]}</button>`).join('')}</div>
 ${f.g ? `<label class="f" for="fg">ya da gram gir<input type="number" id="fg" inputmode="decimal" min="0" data-i="foodG" value="${a.g || ''}" placeholder="${f.g}"></label>` : ''}
 <div class="info" id="pv">${portionInfo()}</div>
-<button class="btn w" data-a="foodAdd">${MEAL_N[a.m]} öğününe ekle</button>`;
+${cu && cu.src === 'off' ? `<p class="xs mut">Kaynak: Open Food Facts (gönüllülerin girdiği veri) · 100 g: ${fmt(cu.k100)} kcal. Paketteki tabloyla karşılaştır; farklıysa "Düzenle" ile düzelt.</p>` : ''}
+<button class="btn w" data-a="foodAdd">${MEAL_N[a.m]} öğününe ekle</button>
+${cu ? `<div class="grid2" style="margin-top:8px"><button class="btn o" data-a="customEdit">Düzenle</button><button class="btn o" data-a="customDel">Sil</button></div>` : ''}`;
   }
   return `<div class="row"><h2 class="sp">${MEAL_N[a.m]} · yiyecek ekle</h2><button class="ic" data-a="closeSheet" aria-label="Kapat">×</button></div>
 <input type="search" id="fq" placeholder="Yiyecek ara (ör. mercimek, simit)" data-i="foodq" value="${esc(a.q)}" autocomplete="off" aria-label="Yiyecek ara">
+<button class="btn g w" data-a="scanOpen" style="margin-top:10px"><svg width="22" height="18" viewBox="0 0 22 18" aria-hidden="true" style="margin-right:8px;vertical-align:-3px"><path fill="currentColor" d="M0 0h2v18H0zM4 0h1v18H4zM7 0h3v18H7zM12 0h1v18h-1zM15 0h2v18h-2zM19 0h1v18h-1zM21 0h1v18h-1z"/></svg>Barkod okut</button>
 <div id="addRes">${addResults()}</div>`;
 }
 function pushItem(m, f, k, qLabel) {
@@ -1397,7 +1611,7 @@ A.addOpen = d => { U.add = { m: d.m, q: '', cat: '', sel: null, mult: 1, g: 0, c
 I.foodq = el => { U.add.q = el.value; $('#addRes').innerHTML = addResults(); };
 A.foodCat = d => { U.add.cat = U.add.cat === d.c ? '' : d.c; $('#addRes').innerHTML = addResults(); };
 A.foodSel = d => { U.add.sel = d.k; U.add.mult = 1; U.add.g = 0; resheet(); };
-A.foodBack = () => { U.add.sel = null; U.add.custom = false; resheet(); };
+A.foodBack = () => { if (U.add.custom && U.add.edit) { U.add.custom = false; U.add.edit = null; } else { U.add.sel = null; U.add.custom = false; U.add.bc = null; } resheet(); };
 A.foodMult = d => { U.add.mult = +d.v; U.add.g = 0; resheet(); };
 I.foodG = el => { U.add.g = num(el.value) > 0 ? num(el.value) : 0; $('#pv').innerHTML = portionInfo(); };
 A.foodAdd = () => {
@@ -1413,15 +1627,223 @@ A.copyY = () => {
   for (const it of y) { const c = Object.assign({}, it); delete c.pl; delete c.ok; d.m[m].push(c); }
   save(); closeSheet(); render(); toast('Dünkü öğün kopyalandı');
 };
-A.customOpen = () => { U.add.custom = true; resheet(); const n = $('#cf-n'); if (n && !n.value) n.focus(); };
+A.customOpen = () => { U.add.custom = true; U.add.edit = null; U.add.bc = null; resheet(); const n = $('#cf-n'); if (n && !n.value) n.focus(); };
 A.customSave = () => {
   const n = $('#cf-n').value.trim(), k = num($('#cf-k').value);
   if (!n || !(k >= 0)) { toast('Ad ve kalori gerekli'); return; }
-  const c = { id: uid(), n, kcal: r0(k), p: num($('#cf-p').value) || 0, c: num($('#cf-c').value) || 0, f: num($('#cf-f').value) || 0 };
+  const g = num($('#cf-g').value) > 0 ? r1(num($('#cf-g').value)) : 0;
+  const vals = { n, kcal: r1(k), p: num($('#cf-p').value) || 0, c: num($('#cf-c').value) || 0, f: num($('#cf-f').value) || 0 };
+  const ed = U.add.edit ? customOf(U.add.edit) : null;
+  if (ed) {
+    if (g !== (ed.g || 0)) { ed.g = g; delete ed.pl; }
+    Object.assign(ed, vals); if (ed.src) { ed.src = 'me'; }
+    save(); U.add.custom = false; U.add.edit = null; resheet(); toast('Güncellendi'); return;
+  }
+  const c = Object.assign({ id: uid() }, vals);
+  if (g) c.g = g;
+  if (U.add.bc) c.bc = U.add.bc;
   S.custom.push(c);
   pushItem(U.add.m, { key: 'c' + c.id, n: c.n, kcal: c.kcal, p: c.p, c: c.c, f: c.f }, 1, '1 porsiyon');
   closeSheet(); render(); toast('Kendi yiyeceklerine kaydedildi');
 };
+/* =====================================================================
+   BARKOD OKUTMA
+   Kamera: varsa tarayıcının BarcodeDetector'ı, yoksa (iPhone) aşağıdaki
+   EAN çözücü. Ürün bilgisi: Open Food Facts (yalnızca barkod numarası
+   gönderilir). Bulunan ürün "Kendi yiyeceklerim"e kaydedilir; aynı barkod
+   sonraki sefer internetsiz tanınır.
+   ===================================================================== */
+const SC = { stream: null, timer: 0, det: null, cv: null, votes: {} };
+function stopScan() { clearTimeout(SC.timer); SC.timer = 0; if (SC.stream) { SC.stream.getTracks().forEach(t => t.stop()); SC.stream = null; } }
+function scanSet(st, extra) { stopScan(); if (!U.add) return; U.add.scan = Object.assign({ st }, extra || {}); resheet(); }
+const scanning = () => !!(U.add && U.add.scan && U.add.scan.st === 'cam');
+async function startScan() {
+  stopScan(); SC.votes = {};
+  if (!$('#scv')) return;
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { scanSet('nocam'); return; }
+  let stream;
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: 'environment' }, width: { ideal: 1280 }, height: { ideal: 720 } } }); }
+  catch (e) { if (scanning()) scanSet('nocam'); return; }
+  const vid = $('#scv');
+  if (!scanning() || !vid || SC.stream) { stream.getTracks().forEach(t => t.stop()); return; }
+  SC.stream = stream; vid.srcObject = stream;
+  try { await vid.play(); } catch (e) {}
+  if (SC.det === null) { SC.det = false; try { if ('BarcodeDetector' in window) SC.det = new BarcodeDetector({ formats: ['ean_13', 'ean_8', 'upc_a'] }); } catch (e) {} }
+  scanTick();
+}
+async function scanTick() {
+  const vid = $('#scv');
+  if (!SC.stream || !vid || !scanning()) { stopScan(); return; }
+  const st = SC.stream; let code = null;
+  if (vid.readyState >= 2 && vid.videoWidth) {
+    if (SC.det) {
+      try { for (const b of await SC.det.detect(vid)) { let c = String(b.rawValue || ''); if (c.length === 12) c = '0' + c; if (eanOk(c)) { code = c; break; } } }
+      catch (e) { SC.det = false; }
+    }
+    if (!code) { const c = scanFrame(vid, false) || scanFrame(vid, true); if (c) { SC.votes[c] = (SC.votes[c] || 0) + 1; if (SC.votes[c] >= 2) code = c; } }
+  }
+  if (SC.stream !== st || !scanning()) return;
+  if (code) { stopScan(); scanLookup(code); return; }
+  SC.timer = setTimeout(scanTick, 80);
+}
+/* Görüntünün ortasındaki şeritten satır satır okur; vert = dik tutulan barkod için sütunlar */
+function scanFrame(vid, vert) {
+  const vw = vid.videoWidth, vh = vid.videoHeight, L = Math.min(vert ? vh : vw, 1024), T = 48;
+  const cv = SC.cv || (SC.cv = document.createElement('canvas'));
+  cv.width = vert ? T : L; cv.height = vert ? L : T;
+  const cx = cv.getContext('2d', { willReadFrequently: true });
+  if (vert) cx.drawImage(vid, vw * 0.35, 0, vw * 0.3, vh, 0, 0, T, L); else cx.drawImage(vid, 0, vh * 0.35, vw, vh * 0.3, 0, 0, L, T);
+  const d = cx.getImageData(0, 0, cv.width, cv.height).data, lum = new Uint8ClampedArray(L), cw = cv.width;
+  for (let t = 4; t < T - 1; t += 5) {
+    for (let x = 0; x < L; x++) {
+      let s = 0;
+      for (let k = -1; k <= 1; k++) { const o = (vert ? x * cw + t + k : (t + k) * cw + x) * 4; s += d[o] * 3 + d[o + 1] * 6 + d[o + 2]; }
+      lum[x] = s / 30;
+    }
+    const c = eanRow(lum, L); if (c) return c.length === 12 ? '0' + c : c;
+  }
+  return null;
+}
+function offFood(p, code) {
+  const nu = p.nutriments || {}, v = k => { const x = parseFloat(nu[k]); return isFinite(x) && x >= 0 ? x : null; };
+  let n = String(p.product_name_tr || p.product_name || '').trim();
+  const br = String(p.brands || '').split(',')[0].trim();
+  if (br && norm(n).indexOf(norm(br)) < 0) n = (br + ' ' + n).trim();
+  n = n.slice(0, 60);
+  const P = v('proteins_100g'), C = v('carbohydrates_100g'), F = v('fat_100g');
+  let K = v('energy-kcal_100g');
+  if (K == null && v('energy_100g') != null) K = v('energy_100g') / 4.184;
+  if (K == null && P != null && C != null && F != null) K = 4 * P + 4 * C + 9 * F;
+  if (!n || K == null || K > 950) return { n, kcal: null };
+  const sq = parseFloat(p.serving_quantity), pq = parseFloat(p.product_quantity);
+  let g = 100, pl = '100 g';
+  if (sq > 0 && sq <= 1000) { g = sq; pl = r1(sq) + ' g'; } else if (pq > 0 && pq <= 150) { g = pq; pl = '1 paket'; }
+  const k = g / 100, r2 = x => Math.round(x * 100) / 100;
+  return { id: uid(), n, kcal: r1(K * k), p: r2((P || 0) * k), c: r2((C || 0) * k), f: r2((F || 0) * k), g: r1(g), pl, bc: code, k100: r0(K), src: 'off' };
+}
+async function scanLookup(code) {
+  if (!U.add) return;
+  const have = S.custom.find(c => c.bc === code);
+  if (have) { U.add.scan = null; U.add.sel = 'c' + have.id; U.add.mult = 1; U.add.g = 0; resheet(); return; }
+  scanSet('load', { code });
+  let j = null, miss = false;
+  try {
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 9000);
+    const r = await fetch('https://world.openfoodfacts.org/api/v2/product/' + code + '.json?fields=product_name,product_name_tr,brands,nutriments,serving_quantity,product_quantity', { signal: ctl.signal });
+    clearTimeout(t);
+    if (r.status === 404) miss = true; else if (r.ok) j = await r.json();
+  } catch (e) {}
+  if (!U.add || !U.add.scan || U.add.scan.st !== 'load' || U.add.scan.code !== code) return;
+  if (!j && !miss) { scanSet('err', { code }); return; }
+  const food = j && j.status === 1 && j.product ? offFood(j.product, code) : null;
+  if (!food || food.kcal == null) { scanSet('nf', { code, name: food ? food.n : '' }); return; }
+  S.custom.push(food); save();
+  U.add.scan = null; U.add.sel = 'c' + food.id; U.add.mult = 1; U.add.g = 0; resheet();
+}
+function scanSheet() {
+  const s = U.add.scan;
+  const head = `<div class="row"><button class="ic" data-a="scanBack" aria-label="Geri">‹</button><h2 class="sp">Barkod okut</h2></div>`;
+  const manual = `<label class="f" for="scn" style="margin-top:14px">ya da barkodun altındaki numarayı yaz<input type="text" id="scn" inputmode="numeric" maxlength="14" autocomplete="off" value="${esc(s.code || '')}"></label><button class="btn o w" data-a="scanManual" style="margin-top:8px">Numarayla ara</button>`;
+  if (s.st === 'cam') return head + `<div class="scanbox"><video id="scv" playsinline muted autoplay></video><i></i></div><p class="xs mut" style="margin-top:8px">Barkodu kırmızı çizginin üzerine getir, yakın ve net tut. Okununca ürün kendiliğinden açılır.</p>` + manual;
+  if (s.st === 'load') return head + `<div class="info" style="margin-top:10px">Ürün aranıyor… (${esc(s.code)})</div>`;
+  if (s.st === 'nf') return head + `<div class="info" style="margin-top:10px">Bu barkod (${esc(s.code)}) ürün veritabanında yok ya da besin değerleri girilmemiş. Değerleri paketten bir kez girersen sonraki okutmada kendiliğinden tanınır.</div>
+<button class="btn w" data-a="scanCustom" style="margin-top:10px">Değerleri paketten gir</button><button class="btn o w" data-a="scanOpen" style="margin-top:8px">Başka barkod okut</button>`;
+  if (s.st === 'err') return head + `<div class="info" style="margin-top:10px">Ürün bilgisi alınamadı. Barkod araması internet ister; bağlantını kontrol edip yeniden dene.</div>
+<button class="btn w" data-a="scanRetry" style="margin-top:10px">Yeniden dene</button><button class="btn o w" data-a="scanCustom" style="margin-top:8px">Değerleri paketten gir</button>`;
+  return head + `<div class="info" style="margin-top:10px">Kamera açılamadı. Kamera izni kapalı olabilir (iPhone: Ayarlar › Safari › Kamera). İzin verip yeniden deneyebilir ya da numarayı elle yazabilirsin.</div><button class="btn g w" data-a="scanOpen" style="margin-top:10px">Kamerayı yeniden dene</button>` + manual;
+}
+A.scanOpen = () => { U.add.scan = { st: 'cam' }; resheet(); startScan(); };
+A.scanBack = () => { stopScan(); U.add.scan = null; U.add.bc = null; resheet(); };
+A.scanRetry = () => scanLookup(U.add.scan.code);
+A.scanManual = () => {
+  let c = $('#scn').value.replace(/\D/g, ''); if (c.length === 12) c = '0' + c;
+  if (!eanOk(c)) { toast('Barkod numarası eksik ya da hatalı'); return; }
+  stopScan(); scanLookup(c);
+};
+A.scanCustom = () => { const s = U.add.scan; U.add.bc = s.code; U.add.q = s.name || ''; U.add.scan = null; U.add.custom = true; U.add.edit = null; resheet(); const n = $('#cf-n'); if (n && !n.value) n.focus(); };
+document.addEventListener('visibilitychange', () => { if (document.hidden) stopScan(); else if (scanning() && !SC.stream && $('#scv')) startScan(); });
+/* Kendi yiyeceğini düzenle / sil */
+const customOf = key => S.custom.find(c => 'c' + c.id === key);
+A.customEdit = () => { if (!customOf(U.add.sel)) return; U.add.edit = U.add.sel; U.add.custom = true; resheet(); };
+A.customDel = () => {
+  const key = U.add.sel, c = customOf(key); if (!c) return;
+  ask('Yiyeceği sil', '"' + c.n + '" kendi yiyeceklerinden silinsin mi? Geçmiş günlere eklediğin kayıtlar değişmez.', 'Sil', () => {
+    S.custom = S.custom.filter(x => x !== c); delete S.freq[key]; S.recent = S.recent.filter(k => k !== key);
+    save(); closeSheet(); render(); toast('Silindi');
+  });
+};
+/* ===== BARKOD — EAN-13 / EAN-8 çözücü (kütüphanesiz) ===== */
+const EAN_W = ['3211', '2221', '2122', '1411', '1132', '1231', '1114', '1312', '1213', '3112'].map(s => s.split('').map(Number));
+const EAN_PAR = ['LLLLLL', 'LLGLGG', 'LLGGLG', 'LLGGGL', 'LGLLGG', 'LGGLLG', 'LGGGLL', 'LGLGLG', 'LGLGGL', 'LGGLGL'];
+function eanOk(code) {
+  if (!/^(\d{8}|\d{12,13})$/.test(code)) return false;
+  const d = code.split('').map(Number), chk = d.pop();
+  let s = 0; d.reverse().forEach((v, i) => { s += v * (i % 2 ? 1 : 3); });
+  return (10 - s % 10) % 10 === chk;
+}
+/* 4 çizgi/boşluk genişliğinden rakam: [rakam, hata, 'L' | 'G'] */
+function eanDigit(r, o, allowG) {
+  const t = (r[o] + r[o + 1] + r[o + 2] + r[o + 3]) / 7;
+  let best = -1, be = 9, bp = 'L';
+  for (let d = 0; d < 10; d++) {
+    const w = EAN_W[d];
+    let e = 0, eg = 0;
+    for (let k = 0; k < 4; k++) { e += Math.abs(r[o + k] / t - w[k]); eg += Math.abs(r[o + k] / t - w[3 - k]); }
+    if (e < be) { be = e; best = d; bp = 'L'; }
+    if (allowG && eg < be) { be = eg; best = d; bp = 'G'; }
+  }
+  return [best, be, bp];
+}
+function eanRuns(r) {
+  const n = r.length;
+  for (let i = 0; i < n; i++) {
+    /* r[i] koyu bir çizgi olmalı; çağıran, çift indeksleri koyu olacak şekilde verir */
+    if (i % 2) continue;
+    for (const [runs, mods, half] of [[59, 95, 6], [43, 67, 4]]) {
+      if (i + runs > n) continue;
+      let tot = 0; for (let k = 0; k < runs; k++) tot += r[i + k];
+      const m = tot / mods;
+      if (m < 1.2) continue;
+      if (i > 0 && r[i - 1] < 4 * m) continue;
+      if (i + runs < n && r[i + runs] < 4 * m) continue;
+      let ok = true;
+      for (const k of [0, 1, 2, runs - 3, runs - 2, runs - 1]) if (r[i + k] > 2.3 * m || r[i + k] < 0.25 * m) ok = false;
+      const mid = i + 3 + half * 4;
+      for (let k = 0; k < 5; k++) if (r[mid + k] > 2.3 * m || r[mid + k] < 0.25 * m) ok = false;
+      if (!ok) continue;
+      let digs = '', par = '', err = 0;
+      for (let d = 0; d < half && ok; d++) {
+        const x = eanDigit(r, i + 3 + d * 4, half === 6);
+        if (x[1] > 1.9) ok = false; digs += x[0]; par += x[2]; err += x[1];
+      }
+      for (let d = 0; d < half && ok; d++) {
+        const x = eanDigit(r, mid + 5 + d * 4, false);
+        if (x[1] > 1.9) ok = false; digs += x[0]; err += x[1];
+      }
+      if (!ok || err / (half * 2) > 1.1) continue;
+      if (half === 6) { const f = EAN_PAR.indexOf(par); if (f < 0) continue; digs = f + digs; }
+      if (eanOk(digs)) return digs;
+    }
+  }
+  return null;
+}
+/* Tek satırlık parlaklık dizisinden (0-255) barkod okur */
+function eanRow(lum, W) {
+  const win = Math.max(16, W >> 3), acc = new Float64Array(W + 1);
+  for (let x = 0; x < W; x++) acc[x + 1] = acc[x] + lum[x];
+  const runs = []; let cur = -1, len = 0, first = 0;
+  for (let x = 0; x < W; x++) {
+    const a = Math.max(0, x - win), b = Math.min(W, x + win);
+    const dark = lum[x] < (acc[b] - acc[a]) / (b - a) - 6 ? 1 : 0;
+    if (dark === cur) len++; else { if (cur >= 0) runs.push(len); else first = dark; cur = dark; len = 1; }
+  }
+  runs.push(len);
+  if (!first) runs.shift();             /* çift indeks = koyu */
+  if (runs.length < 43) return null;
+  const fw = eanRuns(runs); if (fw) return fw;
+  const rv = runs.slice().reverse(); if (rv.length % 2 === 0) rv.shift();
+  return eanRuns(rv);
+}
 A.delItem = d => { const day = dayOf(U.date, true); day.m[d.m].splice(+d.i, 1); save(); render(); };
 A.ate = d => { const it = dayOf(U.date, true).m[d.m][+d.i]; if (it) { it.ok = 1; it.ts = Date.now(); save(); render(); toast('Afiyet olsun'); } };
 A.editItem = d => {
